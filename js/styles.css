@@ -213,7 +213,9 @@ input {
     z-index: 888;
 }
 
-/* Countdown list */
+#countdownData {
+    color: #929292;
+}
 
 #countdownData div {
     cursor: pointer;
