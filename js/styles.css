@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'NixieBoldBig';
+    src: url('fonts/Nixiebold-boldbig.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Nixiebold-bold', Arial, sans-serif;
+    color: #fb7c00;
+    letter-spacing: 0.5em;
+    line-height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Font face loading */
+@font-face {
+    font-family: 'Nixiebold-bold';
+    src: url('fonts/Nixiebold-bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Nixiebold-slim';
+    src: url('fonts/Nixiebold-slim.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Nixiebold-boldbig';
+    src: url('fonts/Nixiebold-boldbig.woff2') format('woff2');
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Layout container */
+#content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    padding: 5vh 2vw 45vh 2vw;
+    /* 上、左右、下边距 */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.countdownday,
+.countdown-Wrapper,
+.input-Wrapper,
+.timeunit-Wrapper,
+.time-Wrapper {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.countdownday {
+    font-size: 5vw;
+    font-family: 'Nixiebold-slim';
+    text-shadow: 0 0 5px #fb7c00, 0 0 10px #fb7c00, 0 0 30px #fb7c00;
+    opacity: 0.5;
+}
+
+.countdown-Wrapper {
+    font-size: 5vw;
+    font-family: 'Nixiebold-slim';
+    color: #000;
+    -webkit-text-stroke: 0.2vh hsla(0, 0%, 0%, 0.5);
+    text-shadow:
+        0.3vh 0.3vh 0 #fb7c00,
+        /* 压痕阴影 */
+        -0.3vh -0.3vh 0 #fb7c00,
+        /* 高光线条 */
+        0 0 0.6vh rgba(255, 255, 255, 0.3);
+    /* 柔光轮廓 */
+    -webkit-text-fill-color: #000;
+}
+
+.input-Wrapper {
+    height: 3vh;
+    font-size: 3vh;
+    line-height: 2;
+    z-index: 99;
+}
+
+input {
+    background-color: rgba(255, 140, 0, 0.685);
+    border-radius: 2vh;
+    color: #ffffff;
+    font-size: 3vh;
+    border: none;
+    width: 5ch;
+    text-align: center;
+    /* ✅ 让文字居中 */
+}
+
+
+.timeunit-Wrapper {
+    bottom: -4vh;
+    font-size: 2vh;
+    color: #9b9b9b;
+    letter-spacing: 2em;
+}
+
+.time-Wrapper {
+    font-size: 4vh;
+    font-family: 'Nixiebold-slim';
+    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue 3s linear infinite;
+    line-height: 1.2;
+}
+
+@keyframes hue {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.countdownlist {
+    position: absolute;
+    bottom: 2.5%;
+    font-size: 2vh;
+    letter-spacing: 0.5em;
+    font-family: Arial, sans-serif;
+    z-index: 99;
+}
+
+/* Input field group */
+
+.con-buttons {
+    position: fixed;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    background: darkcyan;
+}
+
+.con-buttons .button {
+    position: relative;
+    /* 取消 absolute */
+    font-size: 1.8vh;
+    padding: 0.6vh 1.2vh;
+}
+
+.shortcut-buttons {
+    position: fixed;
+    top: 25%;
+    right: 2vh;
+    /* 靠右，不用 left */
+    display: flex;
+    flex-direction: column;
+    /* 改为纵向排列 */
+    gap: 1vh;
+    z-index: 99;
+    align-items: flex-end;
+    /* 如果你想按钮内容也对齐右侧 */
+}
+
+
+.shortcut-buttons .button {
+    position: relative;
+    /* 不要 absolute，这样才能跟父容器排版 */
+    font-size: 1.8vh;
+    padding: 0.6vh 1.2vh;
+    background-color: #000;
+    color: #fb7c00;
+    cursor: pointer;
+}
+
+
+/* Buttons */
+.button {
+    position: absolute;
+    padding: 1vh;
+    font-size: 1.5vh;
+    background-color: #000;
+    color: #fb7c00;
+    cursor: pointer;
+    z-index: 99;
+}
+
+#aboutme {
+    top: 79.8vh;
+    left: 1vh;
+    z-index: 888;
+}
+
+/* Countdown list */
+
+#countdownData div {
+    cursor: pointer;
+    font-size: 2vh;
+    margin-bottom: 1vh;
+    border-radius: 1vh;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#countdownData div:hover {
+    background-color: #3f3f3f;
+    transform: scale(1.02);
+}
+
+.ui-buttons {
+    position: fixed;
+    bottom: 37%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2vw;
+    z-index: 9;
+    pointer-events: auto;
+}
+
+.ui-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fb7c00;
+    border: none;
+    padding: 1vh 2vh;
+    font-size: 1.5vh;
+    border-radius: 0.5vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ui-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
